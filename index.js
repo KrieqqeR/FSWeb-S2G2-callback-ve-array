@@ -106,11 +106,29 @@ const finalYillari = Yillar(fifaData,Finaller)
 	💡 İPUCU: Beraberlikler(ties) için şimdilik endişelenmeyin (Detaylı bilgi için README dosyasına bakabilirsiniz.)
 	4. Tüm kazanan ülkelerin isimlerini içeren `kazananlar` adında bir dizi(array) döndürecek(return)  */ 
 
-function Kazananlar(/* kodlar buraya */) {
+function Kazananlar(fifaData,Finaller) {
+	const gorevDort = Finaller(fifaData)
+    const sonucgorevdort = gorevDort.map((maclar) =>{
+		if(maclar["Home Team Goals"] > maclar["Away Team Goals"]){
+			return maclar["Home Team Name"]
+		}else if (maclar["Home Team Goals"] < maclar["Away Team Goals"]){
+			return maclar["Away Team Name"]
+		}else {
+			return "";
+		}
+	}) .filter((kazanan1) => kazanan1 !== "")   
 	
-    /* kodlar buraya */
-	
+	return sonucgorevdort; 
+
 }
+	
+
+	
+
+
+	
+	
+
 
 
 
