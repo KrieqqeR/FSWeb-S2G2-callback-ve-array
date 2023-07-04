@@ -8,6 +8,15 @@ const { fifaData } = require('./fifa.js')
 
 //(a) 2014 Dünya kupası Finali Evsahibi takım ismi (dizide "Home Team Name" anahtarı)
 
+	function görev1a(match){
+		const sonuc = match["Year"]===2014 && match["Stage"]==="Final"
+		return sonuc
+	}
+	const fifafilter = fifaData.filter(görev1a)
+
+	console.log(fifafilter[0]['Home Team Name'])
+	
+	
 //(b) 2014 Dünya kupası Finali Deplasman takım ismi  (dizide "Away Team Name" anahtarı)
 
 //(c) 2014 Dünya kupası finali Ev sahibi takım golleri (dizide "Home Team Goals" anahtarı)
