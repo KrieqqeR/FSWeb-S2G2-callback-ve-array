@@ -167,12 +167,22 @@ function YillaraGoreKazananlar(fifaData, Finaller, Yillar, Kazananlar) {
 	
 */
 
-function OrtalamaGolSayisi(/* kodlar buraya */) {
-	
-    /* kodlar buraya */
-	
-}
-
+function OrtalamaGolSayisi(fFinallerData) {
+ 
+	//tum ev sahibi golleri + away takim golleri / toplam mac sayisi 
+	   const goller = fFinallerData.map((m) => {
+	 return m["Home Team Goals"] + m["Away Team Goals"];
+	 
+	})
+	console.log('goller burada:', goller);
+	const totalGoller = goller.reduce((total, goller) => total + goller, 0);
+	const length = goller.length;
+	const averageGol = (totalGoller/length);
+	const roundedGol = averageGol.toFixed(2);
+	return roundedGol;
+   }
+   
+   console.log('Ort:', OrtalamaGolSayisi(Finaller(fifaData)))
 
 
 /// EKSTRA ÇALIŞMALAR ///
